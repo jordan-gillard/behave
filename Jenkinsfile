@@ -3,7 +3,7 @@ pipeline {
    parameters {
     editableChoice(
       name: 'TAGS',
-      choices: ['', 'WP-*', 'smoke'],
+      choices: ['', 'WP-*', 'smoke', 'rfb', 'orders', 'routes', 'moda', 'flaky', 'brokers'],
       defaultValue: '',
     )
   }
