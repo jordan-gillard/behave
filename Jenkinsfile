@@ -1,7 +1,14 @@
 pipeline {
   agent any
+   parameters {
+    editableChoice(
+      name: 'TAGS',
+      choices: ['', 'WP-*', 'smoke'],
+      defaultValue: '',
+    )
+  }
   stages {
-    stage('Healthcheck 1') {
+    stage('Healthchecks') {
       parallel {
         stage('Healthcheck 1') {
           steps {
@@ -24,7 +31,7 @@ pipeline {
       }
     }
 
-    stage('Feature 1') {
+    stage('Features') {
       parallel {
         stage('Feature 1') {
           steps {
@@ -65,7 +72,7 @@ pipeline {
       }
     }
 
-    stage('Ready For Business 1') {
+    stage('Ready For Business') {
       parallel {
         stage('Ready For Business 1') {
           steps {
