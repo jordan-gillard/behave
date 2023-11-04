@@ -1,10 +1,16 @@
 pipeline {
   agent any
    parameters {
+    string description: 'Only run feature files matching regular expression PATTERN.', name: '--include', trim: true
+    string description: 'Don’t run feature files matching regular expression PATTERN.', name: '--exclude', trim: true
+    string description: 'Only execute the feature elements which match part of the given name. If this option is given more than once, it will match against all the given names.', name: '--name', trim: true
+    booleanParam description: 'Only run scenarios tagged with “wip”. Additionally: use the “plain” formatter, do not capture stdout or logging output and stop at the first failure.', name: '--wip'
     editableChoice(
-      name: 'TAGS',
-      choices: ['', 'WP-*', 'smoke', 'rfb', 'orders', 'routes', 'moda', 'flaky', 'brokers'],
-      defaultValue: '',
+      name: '--tags',
+      choices: [null, 'WP-*', 'smoke', 'rfb', 'orders', 'routes', 'moda', 'flaky', 'brokers'],
+      defaultValue: null,
+      description: 'Only execute features or scenarios with tags matching TAG_EXPRESSION.',
+      filterConfig: filterConfig(caseInsensitive: true),
     )
   }
   stages {
