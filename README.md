@@ -8,11 +8,11 @@ It also provides an example of multiple stages & test parallelization.
 
 ## Active Choice Plugin
 
-Active Choice Reactive:
+### Active Choice Reactive:
 ![activeChoiceReactive.gif](assets%2FactiveChoiceReactive.gif)
 
-Active Choice:
+### Active Choice:
 ![activeChoiceTags.gif](assets%2FactiveChoiceTags.gif)
 
-Editable Choice:
+### Editable Choice:
 ![editableChoiceTags.gif](assets%2FeditableChoiceTags.gif)
